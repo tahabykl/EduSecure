@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSecure</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="contentContainer">
+            <div id="thisWebsite" class="content-page active">
+                <img src="images/Logo.svg" class="logo">
+                <div id="connectionStatus">
+                    <span id="statusText"></span>
+                </div>
+                <img id="statusImg" width="10%" class="center">
+                <div id="reportSection">
+                    <button id="reportButton">Siteyi Raporla</button>
+                </div>
+                <div id="privacyTip">
+                    <h3>Günün gizlilik ipucu:</h3>
+                    <p id="tipText"></p>
+                </div>
+            </div>
+            <div id="tools" class="content-page ">
+                    <div id="gen">
+                        <p class="msg">Güvenli parola oluştur</p>
+                        <div id="slider" data-role="rangeslider">
+                          <!--  <label for="plength">Length: </label> -->
+                          <!--   <p id="pLen">12</p> -->
+                            <input type="range" name="plength" id="plength" value="12" min="8" max="32" step="4">
+                        </div>
+                        
+                        <div id="check">
+                            <div class="checkbox disabled">
+                                <label><input class="rdonly" type="checkbox" name="lower" id="lower" checked disabled>Küçük Harfler (a-z)</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="upper" id="upper">Büyük Harfler (A-Z)</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="numeric" id="numeric">Rakamlar (0-9)</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="spChar" id="spChar">Özel Karakterler (@#*%$)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="passwordAndCopyContainer">
+                                <div>
+                                    <input type="text" class="form-control rdonly" id="gpwd" readonly> 
+                                    <button type="button" class="btn btn-default copyButton" id="copyButtonGen"><span class="glyphicon glyphicon-copy"></span></button>
+                                </div> 
+                            </div>
+                            
+                            <div class="form-group buttonSection"> 
+                                <div class="col-sm-offset-2 col-sm-10">
+                                   <button class="btn btn-primary" type="submit" id="generate">Oluştur</button>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+            </div>
+            <div id="passwords" class="content-page">
+                <div class="passwordContainer">
+                    <h3>Anlık Parola Yöneticisi</h3>
+                    <form id="password-form">
+                        <label for="site" >Site:</label>
+                        <input type="text" id="site" name="site" readonly required>
+                        <label for="length">Parola Uzunluğu:</label>
+                        <input type="number" id="length" name="length" min="8" max="64" value="16" required>
+                        <button type="submit">Oluştur</button>
+                    </form>
+                    <div class="result">
+                        <label for="generated-password">Parolanız:</label>
+                        <input type="text" id="generated-password" readonly>
+                        <button id="copy-button">Kopyala</button>
+                    </div>
+                </div>
+              </div>                 
+              <div id="settings" class="content-page">
+                <h2>Tercihler</h2>
+                <label for="color-schemes">Renk Şemaları:</label>
+                <select id="color-schemes" name="color-schemes" multiple>
+                  <option value="default">Varsayılan</option>
+                  <option value="blue">Mavi</option>
+                  <option value="green">Yeşil</option>
+                  <option value="purple">Mor</option>
+                  <option value="dark">Siyah</option>
+                </select>
+              </div>
+              
+        </div>
+        <div id="navbar">
+            <button class="navButton active" data-target="thisWebsite">
+                <img src="images/website.png" alt="Website">
+                Gizlilik
+            </button>
+            <button class="navButton" data-target="passwords">
+                <img src="images/passwords.png" alt="passwords">
+                Parolalar
+            </button>
+            <button class="navButton" data-target="tools">
+                <img src="images/tools.png" alt="Tools">
+                Araçlar
+            </button>
+            <button class="navButton" data-target="settings">
+                <img src="images/settings.png" alt="Settings">
+                Tercihler
+            </button>
+        </div>
+    </div>
+    <script src="js/popup.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/passwordManager.js"></script>
+</body>
+</html>
