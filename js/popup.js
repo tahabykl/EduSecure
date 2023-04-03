@@ -107,13 +107,12 @@ async function reportSite(tab) {
   }
 }
 
-// Add the following lines at the end of the DOMContentLoaded event listener
 const navButtons = document.querySelectorAll(".navButton");
 navButtons.forEach((button) => {
   button.addEventListener("click", switchPage);
 });
 
-// Add the following function to handle page switching
+// Handle page switching
 function switchPage(event) {
   const targetButton = event.currentTarget;
   const targetPageId = targetButton.dataset.target;
