@@ -1,0 +1,427 @@
+
+ /* 
+  --primary-color: #e80074;
+  --secondary-color: #c200db;
+  --tertiary-color: #00cfe5;
+  --background-color: #1d1856;
+  */
+
+  /* Default color scheme */
+  :root {
+    --primary-color: #395B64;
+    --secondary-color: #A5C9CA;
+    --tertiary-color: #E7F6F2;
+    --background-color: #2C3333;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--secondary-color);
+  }
+
+.container {
+  width: 340px;
+  height: 600px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#connectionStatus {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#statusText.secure {
+  color: var(--secondary-color);
+}
+
+#statusText.insecure {
+  color: var(--primary-color);
+}
+
+#privacyTip {
+  text-align: center;
+  bottom: 5%;
+}
+
+h2 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+h3 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+p {
+  color: var(--tertiary-color);
+}
+
+#reportSection {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#reportButton {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+#reportButton:hover {
+  background-color: var(--primary-color);
+}
+
+#reportButton:active {
+  background-color: var(--primary-color);
+}
+
+.content-page {
+  display: none;
+  min-height: 475px; /* Set a minimum height for content pages */
+  overflow: auto; /* Add a scrollbar if the content overflows */
+}
+
+.content-page.active {
+  display: block;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.navButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  background-color: var(--background-color);
+  color: var(--tertiary-color);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  width: 70px; /* Fixed width added */
+  text-align: center; /* To center the text inside the button */
+}
+
+.navButton img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.navButton:hover {
+  background-color: var(--primary-color);
+}
+
+.navButton.active {
+  font-weight: bold;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the "Tools" tab */
+#tools {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+    
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+  
+#userPanel {
+  min-width: 550px;
+}
+
+#startPanel, .buttonSection, .heading, .msg, #slider, #check, #alertMsg {
+text-align: center;
+color: var(--tertiary-color);
+}
+  
+#userLabel, #masterLabel, #siteLabel, #passLabel, #usrLabel {
+display: block;
+text-align: center;
+}
+
+.form-group input {
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#userPanel input {
+  text-align: center;
+}
+
+#not, #gen, #managed {
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 5px;
+  height: 100%;
+}
+
+#not p, #gen p:first-child {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 50%;
+  height: 10px;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 5%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  margin-top: -4px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--secondary-color);
+}
+
+#gpwd {
+  width: 100%;
+}
+
+.copyButton, #copyButtonPass, #copyButtonUser, #copyButtonGen {
+  position: relative;
+  left: 90%;
+  bottom: 34px;
+}
+
+.rdonly:hover {
+ cursor: default;
+}
+
+.passwordAndCopyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8%;
+}
+
+.btn{
+  background-color: var(--primary-color);
+}
+
+/* Styles for the "Vault" tab */
+#passwords {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  }
+  
+  .passwordContainer {
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 5px;
+  height: 100%;
+  }
+  
+  .passwordContainer h3 {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 0;
+  }
+  
+  #password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  }
+  
+  #password-form label {
+  font-weight: bold;
+  }
+  
+  #password-form input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  }
+  
+  #password-form button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s;
+  align-self: center;
+  margin-top: 8px;
+  }
+  
+  #password-form button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+  }
+  
+  #password-form button[type="submit"]:active {
+  background-color: var(--secondary-color);
+  }
+  
+  .result {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  }
+  
+  .result label {
+  font-weight: bold;
+  }
+  
+  .result input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  }
+  
+  #copy-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s;
+  align-self: center;
+  }
+  
+  #copy-button:hover {
+  background-color: var(--secondary-color);
+  }
+  
+  #copy-button:active {
+  background-color: var(--secondary-color);
+  }
+
+  #color-schemes {
+    width: 100%;
+    height: 100px;
+    font-size: 16px;
+  }
+  
+  #color-schemes option {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .settings-page {
+    display: none;
+    padding: 20px;
+  }
+  
+  .color-schemes {
+    margin-bottom: 20px;
+  }
+  
+  .color-schemes h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .color-schemes p {
+    margin-bottom: 5px;
+  }
+  
+  select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  select:focus {
+    border-color: #aaa;
+  }
+  
+  option {
+    font-size: 14px;
+  }
+  
+  .logout-btn {
+    background-color: red;
+    color: #fff;
+    margin-top: 1rem;
+  }
+  

@@ -8,16 +8,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   if (!isLoggedIn) {
-    // Show the login page
+    // Login sayfasını göster
     window.location.href = "login.html";
   }
 });
-  
+
+// Zararlı adresler
   async function getMaliciousUrls() {
-    const response = await fetch("maliciousUrls.json");
+    const response = await fetch("../resources/maliciousUrls.json");
     return response.json();
   }
   
+  // Aktif tarayıcı sekmesi
   function getActiveTab() {
     return new Promise((resolve) => {
       chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
@@ -26,10 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
   
+  // Site güvenli mi?
   function checkForMaliciousSite(tab, maliciousUrls) {
     const url = new URL(tab.url);
     if (maliciousUrls.includes(url.hostname)) {
-      alert("Warning! This site is potentially malicious.");
+      alert("Dikkatli olun! Girmeye çalıştığınız site zararlı olabilir.");
     }
   }
   
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("statusImg").src="images/insecure.png"
       statusText.textContent = "Güvensiz bağlantı! Lütfen URL'yi kontrol edin.";
       statusText.classList.add("insecure");
-      if (confirm("Do you want to try forcing the website to use HTTPS?")) {
+      if (confirm("Bulunduğunuz site varsayılan olarak HTTP protokolünü desteklemiyor. Bu siteyi HTTPS protokolü kullanmaya zorlamak ister misiniz?")) {
         redirectToHttps(tab);
       }
     }
@@ -64,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   
   async function fetchPrivacyTips() {
-    const response = await fetch("privacyTips.json");
+    const response = await fetch("../resources/privacyTips.json");
     return response.json();
   }
   
@@ -72,12 +75,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return tips[Math.floor(Math.random() * tips.length)];
   }
   
-
-  // Add the following lines at the end of the DOMContentLoaded event listener
 const reportButton = document.getElementById("reportButton");
 reportButton.addEventListener("click", () => reportSite(tab));
 
-// Add the following function to handle reporting a site
 async function reportSite(tab) {
   const url = new URL(tab.url);
   const browserVersion = navigator.userAgent;
@@ -171,4 +171,11 @@ document.getElementById("copyButtonGen").addEventListener("click", () => {
   const passwordInput = document.getElementById("generatedPassword");
   passwordInput.select();
   document.execCommand("copy");
+});
+
+// Add event listener for logout button
+const logoutButton = document.getElementById("logoutButton");
+logoutButton.addEventListener("click", () => {
+  localStorage.removeItem("masterPassword"); // Clear master password
+  window.location.href = "login.html"; // Redirect to login page
 });

@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "name": "EduSecure",
     "version": "1.0",
+    "description":"Öğrenme Yönetim Sistemlerinde bilgi güvenliğinin sağlanması ve farkındalığın artırılması için bir tarayıcı eklentisi.",
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
