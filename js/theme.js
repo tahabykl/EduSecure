@@ -22,6 +22,9 @@ colorSchemeDropdown.addEventListener("change", () => {
   } else if (selectedValue === "default") {
     setColor("default");
     localStorage.setItem("edusecureTheme", "default");
+  } else if (selectedValue === "orange") {
+    setColor("orange");
+    localStorage.setItem("edusecureTheme", "orange");
   }
 });
 

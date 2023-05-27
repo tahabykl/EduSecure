@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   if (!isLoggedIn) {
-    // Login sayfasını göster
+    // Login (giriş) sayfasını göster
     window.location.href = "login.html";
   }
 });
@@ -78,53 +78,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 const reportButton = document.getElementById("reportButton");
 reportButton.addEventListener("click", () => reportSite(tab));
 
-async function reportSite(tab) {
-  const url = new URL(tab.url);
-  const browserVersion = navigator.userAgent;
-  const apiEndpoint = "https://example-api.com/report"; // Replace with the actual API URL
-
-  const reportData = {
-    domain: url.hostname,
-    browserVersion: browserVersion
-  };
-
-  try {
-    const response = await fetch(apiEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(reportData)
-    });
-
-    if (response.ok) {
-      alert("Thank you for reporting this site. Your report has been submitted.");
-    } else {
-      alert("There was an error submitting your report. Please try again later.");
-    }
-  } catch (error) {
-    alert("There was a problem connecting to the server. Please try again later.");
-  }
-}
-
 const navButtons = document.querySelectorAll(".navButton");
 navButtons.forEach((button) => {
   button.addEventListener("click", switchPage);
 });
 
-// Handle page switching
+// Sayfa değiştirme
 function switchPage(event) {
   const targetButton = event.currentTarget;
   const targetPageId = targetButton.dataset.target;
   const targetPage = document.getElementById(targetPageId);
 
-  // Hide the currently active page and deactivate its nav button
+  // Aktif olan eklenti sekmesini değiştir ve bir önceki aktif sekmenin "nav" butonunun rengini soluklaştır.
   const currentPage = document.querySelector(".content-page.active");
   const currentNavButton = document.querySelector(".navButton.active");
   currentPage.classList.remove("active");
   currentNavButton.classList.remove("active");
 
-  // Show the target page and activate its nav button
+  // Yeni aktif edilen sekmeye geç ve "nav" butonunu aktive et.
   targetPage.classList.add("active");
   targetButton.classList.add("active");
 }
@@ -172,9 +143,40 @@ document.getElementById("copyButtonGen").addEventListener("click", () => {
   document.execCommand("copy");
 });
 
-// Add event listener for logout button
+// Çıkış butonu için event listener
 const logoutButton = document.getElementById("logoutButton");
 logoutButton.addEventListener("click", () => {
-  localStorage.removeItem("masterPassword"); // Clear master password
-  window.location.href = "login.html"; // Redirect to login page
+  localStorage.removeItem("masterPassword"); // Ana parolayı düzenle
+  window.location.href = "login.html"; // Login (giriş) sayfasında yönlendir
 });
+
+/*
+async function reportSite(tab) {
+  const url = new URL(tab.url);
+  const browserVersion = navigator.userAgent;
+  const apiEndpoint = "https://example-api.com/report";
+
+  const reportData = {
+    domain: url.hostname,
+    browserVersion: browserVersion
+  };
+
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(reportData)
+    });
+
+    if (response.ok) {
+      alert("Raporunuz kaydedilmiştir.");
+    } else {
+      alert("Raporunuz kaydedilemedi. Lütfen tekrar deneyin.");
+    }
+  } catch (error) {
+    alert("Sunucuya bağlanırken bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
+  }
+}
+*/
