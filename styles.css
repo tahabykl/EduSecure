@@ -129,7 +129,7 @@ p {
   padding: 8px;
   border-radius: 4px;
   transition: background-color 0.3s;
-  width: 70px; /* Fixed width added */
+  width: 60px; /* Fixed width added */
   text-align: center; /* To center the text inside the button */
 }
 
@@ -383,4 +383,3 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     padding: 5px;
     font-size: 14px;
   }
-
