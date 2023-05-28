@@ -38,6 +38,12 @@ On the "Settings" tab, you can select a color scheme for the extension from a li
 
 If you'd like to contribute to the project, feel free to submit a pull request. Please make sure your code follows the existing style and is well-documented.
 
+### TODO:
+
+- HTTP traffic analysis to detect requests to malicious domains (according to USOM and similar authorities).
+- Vault tab to show the last *n* websites on which EduSecure is used to generate a password.
+- Links to blogposts on edusecure.net.  
+
 ### License
 
 This project is licensed under the GPL-3.0 License. See the LICENSE file for details.
