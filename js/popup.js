@@ -87,9 +87,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   }
-  
-const reportButton = document.getElementById("reportButton");
-reportButton.addEventListener("click", () => reportSite(tab));
 
 const navButtons = document.querySelectorAll(".navButton");
 navButtons.forEach((button) => {
@@ -166,34 +163,3 @@ logoutButton.addEventListener("click", () => {
   localStorage.removeItem("masterPassword"); // Ana parolayı düzenle
   window.location.href = "login.html"; // Login (giriş) sayfasında yönlendir
 });
-
-/*
-async function reportSite(tab) {
-  const url = new URL(tab.url);
-  const browserVersion = navigator.userAgent;
-  const apiEndpoint = "https://example-api.com/report";
-
-  const reportData = {
-    domain: url.hostname,
-    browserVersion: browserVersion
-  };
-
-  try {
-    const response = await fetch(apiEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(reportData)
-    });
-
-    if (response.ok) {
-      alert("Raporunuz kaydedilmiştir.");
-    } else {
-      alert("Raporunuz kaydedilemedi. Lütfen tekrar deneyin.");
-    }
-  } catch (error) {
-    alert("Sunucuya bağlanırken bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
-  }
-}
-*/
