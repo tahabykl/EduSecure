@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-  /* Varsayılan renk şeması */
-  :root {
-    --primary-color: #395B64;
-    --secondary-color: #A5C9CA;
-    --tertiary-color: #E7F6F2;
-    --background-color: #2C3333;
-  }
+/* Varsayılan renk şeması */
+:root {
+  --primary-color: #395B64;
+  --secondary-color: #A5C9CA;
+  --tertiary-color: #E7F6F2;
+  --background-color: #2C3333;
+}
 
-  body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--secondary-color);
-  }
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--secondary-color);
+
 
 .container {
   width: 340px;
@@ -96,8 +96,8 @@ p {
 
 .content-page {
   display: none;
-  min-height: 475px; /* Set a minimum height for content pages */
-  overflow: auto; /* Add a scrollbar if the content overflows */
+  min-height: 475px; /* İçerik sayfaları için minimum yükseklik ayarla */
+  overflow: auto; /* İçerik taşarsa kaydırma çubuğu ekle */
 }
 
 .content-page.active {
@@ -259,7 +259,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background-color: var(--primary-color);
 }
 
-/* Styles for the "Vault" tab */
+/* "Vault" sekmesi için stiller */
 #passwords {
   flex-direction: column;
   align-items: center;
