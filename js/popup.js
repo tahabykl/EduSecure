@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   if (!isLoggedIn) {
-    // Login (giriş) sayfasını göster
+    // Login (giriş) sayfasına yönlendir
     window.location.href = "login.html";
   }
 });
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("statusImg").src="images/insecure.png"
       statusText.textContent = "Güvensiz bağlantı! Lütfen URL'yi kontrol edin.";
       statusText.classList.add("insecure");
-      if (confirm("Bulunduğunuz site varsayılan olarak HTTP protokolünü desteklemiyor. Bu siteyi HTTPS protokolü kullanmaya zorlamak ister misiniz?")) {
+      if (confirm("Bulunduğunuz site varsayılan olarak HTTPS protokolünü desteklemiyor. Bu siteyi HTTPS protokolü kullanmaya zorlamak ister misiniz?")) {
         redirectToHttps(tab);
       }
     }
@@ -74,6 +74,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   function getRandomTip(tips) {
     return tips[Math.floor(Math.random() * tips.length)];
   }
+
+  function generateDomainList() {
+    const domainList = document.getElementById('domainList');
+    domainList.innerHTML = '<h3>Son Kullanılan Websiteleri</h3>';  // Önce listeyi temizle
+    const storedDomains = JSON.parse(localStorage.getItem('domains'));
+    if (storedDomains) {
+      storedDomains.forEach(domain => {
+        const listItem = document.createElement('div');
+        listItem.innerHTML = "<a href='https://" + domain + "' target='_blank'>" + domain + "</a>";
+        domainList.appendChild(listItem);
+      });
+    }
+  }
   
 const reportButton = document.getElementById("reportButton");
 reportButton.addEventListener("click", () => reportSite(tab));
@@ -98,6 +111,10 @@ function switchPage(event) {
   // Yeni aktif edilen sekmeye geç ve "nav" butonunu aktive et.
   targetPage.classList.add("active");
   targetButton.classList.add("active");
+
+  if (targetPageId === 'vault') {
+    generateDomainList();
+  }
 }
 
 document.getElementById('generate').addEventListener('click', function() {

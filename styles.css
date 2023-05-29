@@ -1,12 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
- /* 
-  --primary-color: #e80074;
-  --secondary-color: #c200db;
-  --tertiary-color: #00cfe5;
-  --background-color: #1d1856;
-  */
-
-  /* Default color scheme */
+  /* Varsayılan renk şeması */
   :root {
     --primary-color: #395B64;
     --secondary-color: #A5C9CA;
@@ -15,7 +9,7 @@
   }
 
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: var(--background-color);

@@ -10,18 +10,23 @@ colorSchemeDropdown.addEventListener("change", () => {
   if (selectedValue === "blue") {
     setColor("blue");
     localStorage.setItem("edusecureTheme", "blue");
-  } else if (selectedValue === "green") {
-    setColor("green");
-    localStorage.setItem("edusecureTheme", "green");
+
+  } else if (selectedValue === "light") {
+    setColor("light");
+    localStorage.setItem("edusecureTheme", "light");
+
   } else if (selectedValue === "purple") {
     setColor("purple");
     localStorage.setItem("edusecureTheme", "purple");
+
   } else if (selectedValue === "orange") {
     setColor("orange");
     localStorage.setItem("edusecureTheme", "red");
+
   } else if (selectedValue === "default") {
     setColor("default");
     localStorage.setItem("edusecureTheme", "default");
+    
   } else if (selectedValue === "orange") {
     setColor("orange");
     localStorage.setItem("edusecureTheme", "orange");
@@ -49,6 +54,12 @@ function setColor(color) {
       document.documentElement.style.setProperty("--secondary-color", "#5fb7cf");
       document.documentElement.style.setProperty("--tertiary-color", "#eeeeee");
       document.documentElement.style.setProperty("--background-color", "#3c339a");
+      break;
+    case "light":
+      document.documentElement.style.setProperty("--primary-color", "#1a1a2e");
+      document.documentElement.style.setProperty("--secondary-color", "#16213e");
+      document.documentElement.style.setProperty("--tertiary-color", "#0f3460");
+      document.documentElement.style.setProperty("--background-color", "#e0e0e0");
       break;
     //case "purple":
     //  document.documentElement.style.setProperty("--primary-color", "#dc3545");
