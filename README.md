@@ -43,6 +43,9 @@ If you'd like to contribute to the project, feel free to submit a pull request. 
 - HTTP traffic analysis to detect requests to malicious domains (according to USOM and similar authorities).
 - Vault tab to show the last *n* websites on which EduSecure is used to generate a password.
 - Links to blogposts on edusecure.net.  
+- Better login UI
+- Family account
+- Check for self-signed certificates
 
 ### License
 
