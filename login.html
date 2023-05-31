@@ -8,8 +8,10 @@
 <body>
   <h1>Ana parolanızı girin:</h1>
   <form>
-    <input type="password" id="master-password">
-    <button type="submit">Gönder</button>
+    <input placeholder="Master password" type="password" id="master-password">
+    <input placeholder="Family password" style="margin-top: 5px; display:none;" type="password" id="family-password">
+    <input type="checkbox" id="myCheck">
+    <button id="login" type="submit">Gönder</button>
   </form>
   <script src="js/login.js"></script>
 </body>

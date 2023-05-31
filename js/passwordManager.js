@@ -46,8 +46,13 @@ function storeDomain(domain) {
 
 async function generatePassword(site, length) {
   storeDomain(site);
-  masterPassword = localStorage.getItem("masterPassword");
-  const input = site + masterPassword;
+  var input;
+
+  if (localStorage.getItem('Account') == 'Bireysel') {
+    input = site + localStorage.getItem("masterPassword");
+  } else {
+    input = site + localStorage.getItem("familyPassword");
+  }
 
   const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/';
   const hash = new TextEncoder().encode(input);
@@ -63,8 +68,6 @@ async function generatePassword(site, length) {
 
   return password.join('');
 }
-
-siteInput.value = currentDomain;
 
 async function getActiveTabDomain() {
   return new Promise((resolve) => {

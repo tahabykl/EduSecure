@@ -3,6 +3,7 @@ const intervalInMinutes = 5;
 setInterval(function() {
   //chrome.tabs.create({ url: "login.html" });
   localStorage.setItem('masterPassword', "");
+  localStorage.setItem('familyPassword', "");
   localStorage.setItem("isLoggedIn", false);
 }, intervalInMinutes * 60 * 1000);
 

@@ -32,7 +32,7 @@
                           <!--   <p id="pLen">12</p> -->
                             <input type="range" name="plength" id="plength" value="12" min="8" max="32" step="4">
                         </div>
-                        
+
                         <div id="check">
                             <div class="checkbox disabled">
                                 <label><input class="rdonly" type="checkbox" name="lower" id="lower" checked disabled>Küçük Harfler (a-z)</label>
@@ -47,16 +47,16 @@
                                 <label><input type="checkbox" name="spChar" id="spChar">Özel Karakterler (@#*%$)</label>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="passwordAndCopyContainer">
                                 <div>
-                                    <input type="text" class="form-control rdonly" id="gpwd" readonly> 
+                                    <input type="text" class="form-control rdonly" id="gpwd" readonly>
                                     <button type="button" class="btn btn-default copyButton" id="copyButtonGen"><span class="glyphicon glyphicon-copy"></span></button>
-                                </div> 
+                                </div>
                             </div>
-                            
-                            <div class="form-group buttonSection"> 
+
+                            <div class="form-group buttonSection">
                                 <div class="col-sm-offset-2 col-sm-10">
                                    <button class="btn btn-primary" type="submit" id="generate">Oluştur</button>
                                 </div>
@@ -84,7 +84,7 @@
                         <button id="copy-button">Kopyala</button>
                     </div>
                 </div>
-              </div>                 
+              </div>
               <div id="settings" class="content-page">
                 <h2>Tercihler</h2>
                 <label for="color-schemes">Renk Şemaları:</label>
@@ -96,9 +96,11 @@
                   <option value="purple">Koyu Mor</option>
                 </select>
                 <br>
+                <button style="margin-right: 5px;" id="switchButton" class="btn btn-secondary logout-btn">Hesap Değiştir</button>
+                <label id="accountType"></label><br>
                 <button id="logoutButton" class="btn btn-secondary logout-btn">Çıkış Yap</button>
               </div>
-              
+
         </div>
         <div id="navbar">
             <button class="navButton active" data-target="thisWebsite">

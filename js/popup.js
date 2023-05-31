@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Login (giriş) sayfasına yönlendir
     window.location.href = "login.html";
   }
+
+  const accountTypelabel = document.getElementById("accountType");
+  accountTypelabel.innerHTML = "Mevcut hesap: " + localStorage.getItem("Account");
+
 });
 
   function updateConnectionStatus(tab) {
@@ -150,5 +154,24 @@ document.getElementById("copyButtonGen").addEventListener("click", () => {
 const logoutButton = document.getElementById("logoutButton");
 logoutButton.addEventListener("click", () => {
   localStorage.removeItem("masterPassword"); // Ana parolayı düzenle
+  localStorage.removeItem("familyPassword"); // Aile parolayı düzenle
+  localStorage.removeItem("Account");
+  localStorage.setItem('masterPassword', "");
+  localStorage.setItem('familyPassword', "");
+  localStorage.setItem('Account', "");
+  localStorage.setItem("isLoggedIn", false);
   window.location.href = "login.html"; // Login (giriş) sayfasında yönlendir
+});
+
+const accountType = document.getElementById("switchButton");
+const accountTypelabel = document.getElementById("accountType");
+accountType.addEventListener("click", () => {
+  if (localStorage.getItem("familyPassword") != '') {
+    if (localStorage.getItem("Account") == 'Bireysel') {
+      localStorage.setItem('Account', 'Aile');
+    } else {
+      localStorage.setItem('Account', 'Bireysel');
+    }
+  }
+  accountTypelabel.innerHTML = "Mevcut hesap: " + localStorage.getItem("Account");
 });
