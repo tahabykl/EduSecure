@@ -48,6 +48,7 @@ async function generatePassword(site, length) {
   storeDomain(site);
   masterPassword = localStorage.getItem("masterPassword");
   const input = site + masterPassword;
+
   const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/';
   const hash = new TextEncoder().encode(input);
 

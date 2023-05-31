@@ -1,9 +1,9 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "EduSecure",
   "version": "1.0",
-  "description":"Öğrenme Yönetim Sistemlerinde bilgi güvenliğinin sağlanması ve farkındalığın artırılması için bir tarayıcı eklentisi.",
-  "action": {
+  "description": "Öğrenme Yönetim Sistemlerinde bilgi güvenliğinin sağlanması ve farkındalığın artırılması için bir tarayıcı eklentisi.",
+  "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "images/icon16.png",
@@ -12,24 +12,24 @@
     }
   },
   "background": {
-    "service_worker": "js/background.js"
+    "scripts": ["js/background.js"]
   },
-  "host_permissions": ["http://*/", "https://*/"],
   "permissions": [
     "activeTab",
     "tabs",
+    "http://*/",
+    "https://*/",
     "storage",
-    "scripting"
+    "webRequest",
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    "login.html",
+    "resources/maliciousUrls.json"
   ],
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
-  },
-  "web_accessible_resources": [
-    {
-      "resources": ["login.html"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  }
 }

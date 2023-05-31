@@ -1,7 +1,11 @@
+window.onload = function() {
+  if(localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = "login.html";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-  const maliciousUrls = await getMaliciousUrls();
   const tab = await getActiveTab();
-  checkForMaliciousSite(tab, maliciousUrls);
   updateConnectionStatus(tab);
   displayPrivacyTip();
   setColor(localStorage.getItem("edusecureTheme"));
@@ -13,33 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Zararlı adresler
-  async function getMaliciousUrls() {
-    const response = await fetch("../resources/maliciousUrls.json");
-    return response.json();
-  }
-  
-  // Aktif tarayıcı sekmesi
-  function getActiveTab() {
-    return new Promise((resolve) => {
-      chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
-        resolve(tab);
-      });
-    });
-  }
-  
-  // Site güvenli mi?
-  function checkForMaliciousSite(tab, maliciousUrls) {
-    const url = new URL(tab.url);
-    if (maliciousUrls.includes(url.hostname)) {
-      alert("Dikkatli olun! Girmeye çalıştığınız site zararlı olabilir.");
-    }
-  }
-  
   function updateConnectionStatus(tab) {
     const url = new URL(tab.url);
     const statusText = document.getElementById("statusText");
-  
+
     if (url.protocol === "https:") {
       document.getElementById("statusImg").src="images/secure.png"
       statusText.textContent = "Güvenli bağlantı kuruldu.";
@@ -53,24 +34,32 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
   }
-  
+
+  function getActiveTab() {
+    return new Promise((resolve) => {
+      chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
+        resolve(tab);
+      });
+    });
+  }
+
   function redirectToHttps(tab) {
     const url = new URL(tab.url);
     url.protocol = "https:";
     chrome.tabs.update(tab.id, { url: url.toString() });
   }
-  
+
   async function displayPrivacyTip() {
     const tips = await fetchPrivacyTips();
     const tipText = document.getElementById("tipText");
     tipText.textContent = getRandomTip(tips);
   }
-  
+
   async function fetchPrivacyTips() {
     const response = await fetch("../resources/privacyTips.json");
     return response.json();
   }
-  
+
   function getRandomTip(tips) {
     return tips[Math.floor(Math.random() * tips.length)];
   }
