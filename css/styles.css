@@ -1,26 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
- /* 
-  --primary-color: #e80074;
-  --secondary-color: #c200db;
-  --tertiary-color: #00cfe5;
-  --background-color: #1d1856;
-  */
+/* Varsayılan renk şeması */
+:root {
+  --primary-color: #395B64;
+  --secondary-color: #A5C9CA;
+  --tertiary-color: #E7F6F2;
+  --background-color: #2C3333;
+}
 
-  /* Default color scheme */
-  :root {
-    --primary-color: #395B64;
-    --secondary-color: #A5C9CA;
-    --tertiary-color: #E7F6F2;
-    --background-color: #2C3333;
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: var(--background-color);
-    color: var(--secondary-color);
-  }
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--secondary-color);
+}
 
 .container {
   width: 340px;
@@ -102,8 +96,8 @@ p {
 
 .content-page {
   display: none;
-  min-height: 475px; /* Set a minimum height for content pages */
-  overflow: auto; /* Add a scrollbar if the content overflows */
+  min-height: 475px; /* İçerik sayfaları için minimum yükseklik ayarla */
+  overflow: auto; /* İçerik taşarsa kaydırma çubuğu ekle */
 }
 
 .content-page.active {
@@ -129,7 +123,7 @@ p {
   padding: 8px;
   border-radius: 4px;
   transition: background-color 0.3s;
-  width: 70px; /* Fixed width added */
+  width: 60px; /* Fixed width added */
   text-align: center; /* To center the text inside the button */
 }
 
@@ -265,7 +259,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background-color: var(--primary-color);
 }
 
-/* Styles for the "Vault" tab */
+/* "Vault" sekmesi için stiller */
 #passwords {
   flex-direction: column;
   align-items: center;
@@ -383,45 +377,3 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     padding: 5px;
     font-size: 14px;
   }
-
-  .settings-page {
-    display: none;
-    padding: 20px;
-  }
-  
-  .color-schemes {
-    margin-bottom: 20px;
-  }
-  
-  .color-schemes h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .color-schemes p {
-    margin-bottom: 5px;
-  }
-  
-  select {
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-  }
-  
-  select:focus {
-    border-color: #aaa;
-  }
-  
-  option {
-    font-size: 14px;
-  }
-  
-  .logout-btn {
-    background-color: red;
-    color: #fff;
-    margin-top: 1rem;
-  }
-  
