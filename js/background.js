@@ -1,7 +1,7 @@
 // Fonksiyonu her x dakikada bir çalıştır (varsayılan: her 5 dakikada bir)
 const intervalInMinutes = 5;
 setInterval(function() {
-  //chrome.tabs.create({ url: "login.html" });
+  chrome.tabs.create({ url: "/html/login.html" });
   localStorage.setItem('masterPassword', "");
   localStorage.setItem('familyPassword', "");
   localStorage.setItem("isLoggedIn", false);
@@ -10,7 +10,7 @@ setInterval(function() {
 var maliciousUrls = [];
 var alertedUrls = {};
 
-// Load the malicious URLs
+// Zararlı URL'leri yükle
 var xhr = new XMLHttpRequest();
 xhr.open("GET", chrome.runtime.getURL("/resources/maliciousUrls.json"), true);
 xhr.onreadystatechange = function() {
@@ -27,7 +27,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       if(!alertedUrls[details.tabId]) {
         alertedUrls[details.tabId] = [];
       }
-      alertedUrls[details.tabId].push(url.hostname); // Add the URL to the list of URLs we've alerted about for this tab
+      alertedUrls[details.tabId].push(url.hostname); // URL'yi uyarılmış URL'ler listesine ekle.
       alert("Malicious request: " + url.hostname);
     }
   },

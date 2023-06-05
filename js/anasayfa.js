@@ -1,24 +1,20 @@
 window.onload = function() {
-  if(localStorage.getItem('isLoggedIn') !== 'true') {
-      window.location.href = "login.html";
-  }
+ if(localStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = "/html/login.html";
+ }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   const tab = await getActiveTab();
   updateConnectionStatus(tab);
   displayPrivacyTip();
-  setColor(localStorage.getItem("edusecureTheme"));
+ // setColor(localStorage.getItem("edusecureTheme"));
 
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   if (!isLoggedIn) {
     // Login (giriş) sayfasına yönlendir
-    window.location.href = "login.html";
+    window.location.href = "/html/login.html";
   }
-
-  const accountTypelabel = document.getElementById("accountType");
-  accountTypelabel.innerHTML = "Mevcut hesap: " + localStorage.getItem("Account");
-
 });
 
   function updateConnectionStatus(tab) {
@@ -26,11 +22,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const statusText = document.getElementById("statusText");
 
     if (url.protocol === "https:") {
-      document.getElementById("statusImg").src="images/secure.png"
+      document.getElementById("statusImg").src="/resources/img/vector.svg"
       statusText.textContent = "Güvenli bağlantı kuruldu.";
       statusText.classList.add("secure");
     } else {
-      document.getElementById("statusImg").src="images/insecure.png"
+      document.getElementById("statusImg").src="/resources/img/vector2.svg"
       statusText.textContent = "Güvensiz bağlantı! Lütfen URL'yi kontrol edin.";
       statusText.classList.add("insecure");
       if (confirm("Bulunduğunuz site varsayılan olarak HTTPS protokolünü desteklemiyor. Bu siteyi HTTPS protokolü kullanmaya zorlamak ister misiniz?")) {
@@ -60,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function fetchPrivacyTips() {
-    const response = await fetch("../resources/privacyTips.json");
+    const response = await fetch("/resources/privacyTips.json");
     return response.json();
   }
 
@@ -106,72 +102,3 @@ function switchPage(event) {
     generateDomainList();
   }
 }
-
-document.getElementById('generate').addEventListener('click', function() {
-  var array = [];
-
-  var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-  for (var i=0; i<alphabet.length; ++i) {
-    array.push(alphabet[i]);
-  }
-
-  if ( document.querySelector('input[name=upper]:checked') ) {
-    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    for (var i=0; i<alphabet.length; ++i) {
-      array.push(alphabet[i]);
-    }
-  }
-
-  if ( document.querySelector('input[name=numeric]:checked') ) {
-    var number = '0123456789'.split('');
-    for (var i=0; i<number.length; ++i) {
-      array.push(number[i]);
-    }
-  }
-
-  if ( document.querySelector('input[name=spChar]:checked') ) {
-    var special = '!@#$%^&*(){}][:;><,.]'.split('');
-    for (var i=0; i<special.length; ++i) {
-      array.push(special[i]);
-    }
-  }
-
-  var pass = "";
-  for (var i=0; i<parseInt(document.querySelector('input[name=plength]').value); ++i) {
-    pass += array[Math.floor(Math.random() * array.length)];
-  }
-
-  document.getElementById('gpwd').value = pass;
-});
-
-document.getElementById("copyButtonGen").addEventListener("click", () => {
-  const passwordInput = document.getElementById("generatedPassword");
-  passwordInput.select();
-  document.execCommand("copy");
-});
-
-// Çıkış butonu için event listener
-const logoutButton = document.getElementById("logoutButton");
-logoutButton.addEventListener("click", () => {
-  localStorage.removeItem("masterPassword"); // Ana parolayı düzenle
-  localStorage.removeItem("familyPassword"); // Aile parolayı düzenle
-  localStorage.removeItem("Account");
-  localStorage.setItem('masterPassword', "");
-  localStorage.setItem('familyPassword', "");
-  localStorage.setItem('Account', "");
-  localStorage.setItem("isLoggedIn", false);
-  window.location.href = "login.html"; // Login (giriş) sayfasında yönlendir
-});
-
-const accountType = document.getElementById("switchButton");
-const accountTypelabel = document.getElementById("accountType");
-accountType.addEventListener("click", () => {
-  if (localStorage.getItem("familyPassword") != '') {
-    if (localStorage.getItem("Account") == 'Bireysel') {
-      localStorage.setItem('Account', 'Aile');
-    } else {
-      localStorage.setItem('Account', 'Bireysel');
-    }
-  }
-  accountTypelabel.innerHTML = "Mevcut hesap: " + localStorage.getItem("Account");
-});

@@ -1,0 +1,89 @@
+:root { 
+  --alto: #d9d9d9;
+  --black: #000000;
+  --blue-bell: #95a3d3;
+  --blue-ribbon: #105dfb;
+  --charade: #292d32;
+  --chicago: #5f5f5f;
+  --gray: #7f7f7f;
+  --gunsmoke: #838383;
+  --monza: #e6001f;
+  --new-car: #1949f1;
+  --white: #ffffff;
+ 
+  --font-size-l: 15px;
+  --font-size-m: 14px;
+  --font-size-s: 13px;
+  --font-size-xl: 16px;
+  --font-size-xs: 9px;
+  --font-size-xxl: 20px;
+  --font-size-xxxl: 24px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-poppins: "Poppins", Helvetica;
+  --font-family-pt_mono: "PT Mono", Helvetica;
+  --font-family-roboto: "Roboto", Helvetica;
+}
+.poppins-normal-black-14px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.inter-bold-white-9px {
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xs);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.poppins-normal-charade-20px {
+  color: var(--charade);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-light-gray-16px {
+  color: var(--gray);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 300;
+}
+
+.inter-normal-black-8px {
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-normal-charade-15px {
+  color: var(--charade);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-normal-black-24px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.poppins-normal-black-16px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+}

@@ -1,48 +1,196 @@
-body {
-    background-color: #f1f1f1;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 32px;
-    margin-top: 50px;
-  }
-  
-  form {
-    margin-top: 30px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
-    font-size: 24px;
-  }
-  
-  input[type="password"] {
-    font-size: 24px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  
+/* screen - login */
+
+.login {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow: hidden;
+  padding: 1px 0;
+  width: 370px;
+}
+
+.login .logo {
+  height: 137px;
+  margin-right: 1.0px;
+  object-fit: cover;
+  width: 130px;
+}
+
+.login .overlap-group {
+  align-items: flex-start;
+  border: 2px solid;
+  border-color: var(--black);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  padding: 19px 11px;
+  width: 283px;
+}
+
+.login .parolanz-giriniz {
+  align-self: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-right: 4.0px;
+  min-width: 129px;
+  white-space: nowrap;
+}
+
+.login .ana-parola {
+  align-items: center;
+  background-color: var(--white);
+  border: 1.12px solid;
+  border-color: var(--chicago);
+  border-radius: 10px;
+  display: flex;
+  gap: 4264px;
+  height: 34px;
+  margin-top: 29px;
+  min-width: 253px;
+}
+
+.login .line-1 {
+  align-self: flex-end;
+  height: 1px;
+  margin-bottom: -921.34px;
+  margin-left: -4277px;
+  width: 15px;
+}
+
+.login .frame-1 {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  gap: 2px;
+  height: 16px;
+  margin-bottom: 2.2px;
+  padding: 0px 3px;
+  position: relative;
+  width: fit-content;
+}
+
+.login .name {
+  color: transparent;
+}
+
+.login .span0 {
+  color: var(--chicago);
+}
+
+.login .span1 {
+  color: #ff0000;
+}
+
+.login .zorunlu-alan {
+  color: #ff0000;
+  font-family: var(--font-family-poppins);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 5px;
+  margin-top: 5px;
+  min-height: 10px;
+}
+
+.login .aile-parola {
+  align-items: center;
+  background-color: var(--white);
+  border: 1.12px solid;
+  border-color: var(--chicago);
+  border-radius: 10px;
+  display: flex;
+  gap: 4265px;
+  height: 34px;
+  margin-left: 1px;
+  margin-top: 21px;
+  min-width: 253px;
+}
+
+.login .line-1-1 {
+  align-self: flex-end;
+  height: 1px;
+  margin-bottom: -853.59px;
+  margin-left: -4278px;
+  width: 15px;
+}
+
+.login .frame-1-1 {
+  align-items: flex-start;
+  background-color: var(--white);
+  display: flex;
+  gap: 5.62px;
+  height: 16px;
+  margin-bottom: 2.2px;
+  padding: 0px 5.62px;
+  position: relative;
+  width: fit-content;
+}
+
+.login .name-1 {
+  color: var(--chicago);
+}
+
+.login .giri-butonu {
+  align-items: flex-end;
+  background-image: url(/resources/img/rectangle-6.png);
+  background-size: 100% 100%;
+  border: 1px solid;
+  border-color: #00000069;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 52px;
+  margin-right: 1.0px;
+  margin-top: 60px;
+  overflow: hidden;
+  padding: 14.3px 91.5px;
+  width: 260px;
+}
+
+.login .giri-yap {
+  height: 18px;
+  width: 77px;
+}
+
+.login .name-2 {
+  font-family: var(--font-family-roboto);
+  font-size: 7.9px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 16.7px;
+  margin-bottom: -0.12px;
+  margin-top: -0.56px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-top: 15px;
+}
+
+.input-container label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.input-container input {
+  font-family: var(--font-family-poppins);
+  font-size: 10px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid #ccc;
+  border-radius: 17px;
+  font-size: 1em;
+}

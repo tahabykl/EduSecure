@@ -1,0 +1,411 @@
+/* screen - parola */
+
+.parola {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow: hidden;
+  padding: 1px 0;
+  width: 370px;
+}
+
+.parola .flex-col {
+  flex-direction: column;
+  margin-left: 4.0px;
+  margin-top: 40px;
+  min-height: 295px;
+  width: 301px;
+}
+
+.parola .title {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 5.0px;
+  min-height: 36px;
+  min-width: 134px;
+}
+
+.parola .group-2 {
+  align-items: flex-start;
+  display: flex;
+  height: 30px;
+  margin-top: 42px;
+  min-width: 301px;
+}
+
+.parola .name {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 30px;
+  min-width: 82px;
+}
+
+.parola .overlap-group {
+  align-self: center;
+  height: 24px;
+  margin-bottom: 2.0px;
+  margin-left: 11px;
+  position: relative;
+  width: 176px;
+}
+
+.parola .line-5 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 19px;
+  width: 176px;
+}
+
+.parola .edusecurenet {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0px;
+}
+
+.parola .vuesaxlineartick-circle {
+  height: 24px;
+  margin-left: 4px;
+  width: 24px;
+}
+
+.parola .frame-22 {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: #9b9b9b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 45px;
+  margin-right: 4.0px;
+  margin-top: 37px;
+  overflow: hidden;
+  width: 293px;
+}
+
+.parola .flex-row {
+  align-self: center;
+  gap: 171px;
+  margin-left: 6.0px;
+  margin-top: 5px;
+  min-width: 271px;
+}
+
+.parola .parolanz {
+  color: var(--gray);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-m)+1;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 3.0px;
+  min-height: 16px;
+  min-width: 76px;
+  white-space: nowrap;
+}
+
+.parola .flex-row-1 {
+  align-items: center;
+  align-self: flex-start;
+  display: flex;
+  gap: 32px;
+  margin-left: 9px;
+  margin-top: 38px;
+  min-width: 194px;
+}
+
+.parola .uzunluk {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 0.5px;
+  min-height: 23px;
+  min-width: 58px;
+}
+
+.parola .add-form {
+  align-items: flex-start;
+  display: flex;
+  min-width: 104px;
+}
+
+.parola .overlap-group1 {
+  height: 26px;
+  position: relative;
+  width: 104px;
+}
+
+.parola .overlap-group-1 {
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+  height: 26px;
+  min-width: 40px;
+  padding: 0 8px;
+}
+
+.parola .base-text-1 {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  gap: 5px;
+  margin-bottom: -0.50px;
+  position: relative;
+}
+
+.parola .text-base-1 {
+  flex: 1;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.50px;
+  position: relative;
+  text-align: center;
+}
+
+.parola .base-text {
+  gap: 5px;
+  position: relative;
+  width: fit-content;
+}
+
+.parola .text-base {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.50px;
+  position: relative;
+  width: fit-content;
+}
+
+.parola .flex-row-2 {
+  align-items: flex-start;
+  display: flex;
+  height: 24px;
+  margin-right: 6.0px;
+  margin-top: 18px;
+  min-width: 277px;
+}
+
+.parola .rakamlar {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 23px;
+  min-width: 72px;
+}
+
+.parola .checkbox-1 {
+  margin-left: 18px;
+}
+
+.parola .zel-karakter {
+  align-self: flex-end;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 33px;
+  min-height: 23px;
+  min-width: 98px;
+}
+
+.parola .checkbox {
+  margin-left: 10px;
+}
+
+.parola .flex-row-3 {
+  align-items: flex-start;
+  display: flex;
+  margin-right: 2.0px;
+  margin-top: 17px;
+  min-width: 277px;
+}
+
+.parola .kk-harf {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 23px;
+  min-width: 80px;
+}
+
+.parola .byk-harf {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 33px;
+  min-height: 23px;
+  min-width: 79px;
+}
+
+.parola .checkbox-2 {
+  margin-left: 29px;
+}
+
+.parola .overlap-group5 {
+  border-radius: 10px;
+  height: 45px;
+  margin-top: 64px;
+  position: relative;
+  width: 293px;
+}
+
+.parola .frame-25 {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: var(--black);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 45px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 293px;
+}
+
+.parola .vuesaxlinearcopy-1 {
+  align-self: flex-end;
+  margin-right: 8px;
+  margin-top: 5px;
+}
+
+.parola .parola-olutur {
+  left: 90px;
+  line-height: normal;
+  top: 10px;
+  width: 125px;
+}
+
+.parola .frame-24 {
+  align-items: center;
+  background-color: var(--white);
+  border-color: var(--gunsmoke);
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  height: 77px;
+  margin-left: 2.0px;
+  margin-top: 113px;
+  min-width: 370px;
+  padding: 0 13px;
+}
+
+.parola .flex-col-1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 55px;
+  width: 71px;
+}
+
+.parola .icons {
+  height: 32px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.parola .icons-1 {
+  cursor: pointer;
+  height: 32px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 32px;
+}
+
+.parola .name-1 {
+  letter-spacing: 0;
+  line-height: 20px;
+  min-width: 71px;
+  white-space: nowrap;
+}
+
+.parola .overlap-group3 {
+  height: 51px;
+  margin-left: 33px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 45px;
+}
+
+.parola .parola-1 {
+  left: 0;
+  line-height: 20px;
+  text-align: center;
+  top: 31px;
+  white-space: nowrap;
+}
+
+.parola .icons-2 {
+  height: 32px;
+  left: 7px;
+  position: absolute;
+  top: 0;
+  width: 32px;
+}
+
+.parola .overlap-group1-1 {
+  height: 48px;
+  margin-left: 48px;
+  margin-top: 7.0px;
+  position: relative;
+  width: 43px;
+}
+
+.parola .overlap-group2 {
+  height: 48px;
+  margin-left: 34px;
+  margin-top: 7.0px;
+  position: relative;
+  width: 60px;
+}
+
+.parola .icons-3 {
+  background-image: url(/resources/img/vuesax-linear-setting-2.svg);
+  background-size: 100% 100%;
+  cursor: pointer;
+  height: 32px;
+  left: 14px;
+  position: absolute;
+  top: 0;
+  width: 33px;
+}
+
+.parola .checkbox-3 {
+  height: 23px;
+  width: 23px;
+}
+
+.parola .parola-2 {
+  letter-spacing: 0;
+  position: absolute;
+}
+
+.parola .vuesaxlinearcopy-2 {
+  height: 27px;
+  width: 24px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  margin: 0px auto;
+}
+
+.input-container label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.input-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}

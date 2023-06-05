@@ -4,11 +4,11 @@
   "version": "1.0",
   "description": "Öğrenme Yönetim Sistemlerinde bilgi güvenliğinin sağlanması ve farkındalığın artırılması için bir tarayıcı eklentisi.",
   "browser_action": {
-    "default_popup": "popup.html",
+    "default_popup": "html/anasayfa.html",
     "default_icon": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
+      "16": "resources/images/icon16.png",
+      "48": "resources/images/icon48.png",
+      "128": "resources/images/icon128.png"
     }
   },
   "background": {
@@ -24,12 +24,14 @@
     "<all_urls>"
   ],
   "web_accessible_resources": [
-    "login.html",
+    "html/login.html",
+    "html/tercihler.html",
+    "js/tercihler.js",
     "resources/maliciousUrls.json"
   ],
   "icons": {
-    "16": "images/icon16.png",
-    "48": "images/icon48.png",
-    "128": "images/icon128.png"
+    "16": "resources/images/icon16.png",
+    "48": "resources/images/icon48.png",
+    "128": "resources/images/icon128.png"
   }
 }

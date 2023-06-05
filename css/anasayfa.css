@@ -1,0 +1,204 @@
+/* screen - anasayfa */
+
+.invisibleButton {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #f0f0f0;
+  color: #000;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.anasayfa {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 370px;
+}
+
+.anasayfa .gvenlik-gizlilik {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 1.0px;
+  margin-top: 40px;
+  min-height: 36px;
+  min-width: 204px;
+  text-align: center;
+}
+
+.anasayfa .overlap-group5 {
+  align-items: flex-start;
+  border: 3px solid;
+  border-color: var(--black);
+  border-radius: 47px;
+  display: flex;
+  height: 94px;
+  margin-right: 1.0px;
+  margin-top: 44px;
+  min-width: 94px;
+  padding: 20.2px 25.2px;
+}
+
+.anasayfa .icon-lock {
+  height: 46px;
+  width: 38px;
+}
+
+.anasayfa .gvenli-balant-kuruldu {
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: 10px;
+  min-width: 199px;
+  white-space: nowrap;
+}
+
+.anasayfa .overlap-group4 {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: var(--monza);
+  border-radius: 10px;
+  display: flex;
+  height: 37px;
+  margin-right: 1.0px;
+  margin-top: 16px;
+  min-width: 182px;
+  padding: 5px 36px;
+}
+
+.anasayfa .siteyi-raporla {
+  color: var(--monza);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 24px;
+}
+
+.anasayfa .gnn-pucu {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 50px;
+  min-height: 31px;
+  text-align: center;
+  width: 107px;
+}
+
+.anasayfa .line-1 {
+  height: 2px;
+  margin-top: 3px;
+  width: 331px;
+}
+
+.anasayfa .otel-kafe-gibi-meka {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 5px;
+  margin-right: 25px;
+  margin-left: 25px;
+  min-height: 60px;
+  min-width: 319px;
+  text-align: center;
+}
+
+.anasayfa .frame-23 {
+  align-items: flex-end;
+  background-color: var(--white);
+  border-color: var(--gunsmoke);
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  height: 78px;
+  margin-top: 75px;
+  min-width: 365px;
+  padding: 11px 13px;
+}
+
+.anasayfa .overlap-group1 {
+  align-self: flex-start;
+  height: 55px;
+  position: relative;
+  width: 71px;
+}
+
+.anasayfa .name {
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 31px;
+  white-space: nowrap;
+}
+
+.anasayfa .icons {
+  left: 19px;
+  width: 32px;
+}
+
+.anasayfa .vuesaxboldhome {
+  height: 32px;
+  left: 19px;
+  position: absolute;
+  top: 3px;
+  width: 32px;
+}
+
+.anasayfa .overlap-group2 {
+  height: 51px;
+  margin-bottom: 1px;
+  margin-left: 33px;
+  position: relative;
+  width: 45px;
+}
+
+.anasayfa .icons-1 {
+  background-image: url(/resources/img/vuesax-linear-shield-search.svg);
+  background-size: 100% 100%;
+  cursor: pointer;
+  left: 6px;
+  width: 33px;
+}
+
+.anasayfa .overlap-group3 {
+  height: 48px;
+  margin-bottom: 4px;
+  margin-left: 48px;
+  position: relative;
+  width: 43px;
+}
+
+.anasayfa .overlap-group {
+  height: 48px;
+  margin-bottom: 4px;
+  margin-left: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.anasayfa .icons-2 {
+  background-image: url(/resources/img/vuesax-linear-setting-2.svg);
+  background-size: 100% 100%;
+  cursor: pointer;
+  left: 14px;
+  width: 33px;
+}
+
+.anasayfa .icons-3 {
+  height: 32px;
+  position: absolute;
+  top: 0;
+}

@@ -1,27 +1,73 @@
+function XorShift(seed = 1) {
+  let x = seed;
+  
+  return function() {
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x << 5;
+    return x >>> 0;
+  }
+}
+
+const shuffleCharset = (charset) => {
+    const xorshift = XorShift(charset.length);
+    let array = charset.split('');
+    let currentIndex = array.length, temporaryValue, randomIndex;
+  
+    while (0 !== currentIndex) {
+      randomIndex = Math.abs(xorshift()) % currentIndex;
+      currentIndex -= 1;
+  
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array.join('');
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   const passwordForm = document.getElementById('password-form');
   const siteInput = document.getElementById('site');
   const generatedPassword = document.getElementById('generated-password');
   const copyButton = document.getElementById('copy-button');
 
-  const currentDomain = await getActiveTabDomain();
-  siteInput.value = currentDomain;
+  var passlength = 12;
 
-  passwordForm.addEventListener('submit', async (event) => {
+  const currentDomain = await getActiveTabDomain();
+  siteInput.textContent = currentDomain;
+
+  passwordForm.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const site = siteInput.value;
-    //const masterPassword = document.getElementById('master-password').value;
-    const length = document.getElementById('length').value;
+    const site = siteInput.textContent;
+    const length = passlength;
 
     const password = await generatePassword(site, length);
     generatedPassword.value = password;
   });
-
+  
   copyButton.addEventListener('click', () => {
     generatedPassword.select();
     document.execCommand('copy');
   });
+
+  const passwordLength = document.getElementById('passwordLength');
+
+  const incLength = document.getElementById('incLength');
+  incLength.addEventListener('click', async (event) => {
+    event.preventDefault();
+    passlength++;
+    passwordLength.innerHTML = passlength;
+  });
+
+  const decLength = document.getElementById('decLength');
+  decLength.addEventListener('click', async (event) => {
+    event.preventDefault();
+    passlength--;
+    passwordLength.innerHTML = passlength;
+  });
+
 });
 
 async function getActiveTabDomain() {
@@ -33,19 +79,36 @@ async function getActiveTabDomain() {
   });
 }
 
-function storeDomain(domain) {
+function storeDomain(domain, passlength) {
   let storedDomains = JSON.parse(localStorage.getItem('domains'));
+  let lastId = Number(localStorage.getItem('lastId'));
+  
   if (!storedDomains) {
     storedDomains = [];
   }
-  if (!storedDomains.includes(domain)) {
-    storedDomains.push(domain);
+
+  if (isNaN(lastId)) {
+    lastId = 0;
   }
+
+  const domainObj = {
+    id: lastId + 1,
+    domain: domain,
+    length: passlength,
+  };
+
+  const domainExists = storedDomains.some((storedDomain) => storedDomain.domain === domain);
+
+  if (!domainExists) {
+    storedDomains.unshift(domainObj);
+    localStorage.setItem('lastId', domainObj.id);
+  }
+
   localStorage.setItem('domains', JSON.stringify(storedDomains));
 }
 
 async function generatePassword(site, length) {
-  storeDomain(site);
+  storeDomain(site, length);
   var input;
 
   if (localStorage.getItem('Account') == 'Bireysel') {
@@ -54,7 +117,7 @@ async function generatePassword(site, length) {
     input = site + localStorage.getItem("familyPassword");
   }
 
-  const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/';
+  const charset = shuffleCharset('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/');
   const hash = new TextEncoder().encode(input);
 
   const digest = await window.crypto.subtle.digest('SHA-256', hash);
@@ -66,7 +129,7 @@ async function generatePassword(site, length) {
     password.push(charset[index]);
   }
 
-  return password.join('');
+  return shuffleCharset(password.join(''));
 }
 
 async function getActiveTabDomain() {

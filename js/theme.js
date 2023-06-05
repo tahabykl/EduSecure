@@ -1,12 +1,12 @@
-// Select the color scheme dropdown element
+// Renk şeması dropdown ögesini seç
 const colorSchemeDropdown = document.getElementById("color-schemes");
 
-// Add an event listener to the color scheme dropdown
+// Renk şeması dropdown'ına event listener ekle
 colorSchemeDropdown.addEventListener("change", () => {
-  // Get the selected option's value
+  // Seçilen renk şemasının değerini al
   const selectedValue = colorSchemeDropdown.value;
 
-  // Update the CSS variables to reflect the selected color scheme
+  // Seçilen renk şemasının uygulanması için CSS değişkenlerini güncelle
   if (selectedValue === "blue") {
     setColor("blue");
     localStorage.setItem("edusecureTheme", "blue");
