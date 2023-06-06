@@ -1,5 +1,6 @@
 // Fonksiyonu her x dakikada bir çalıştır (varsayılan: her 5 dakikada bir)
-const intervalInMinutes = 15;
+// Local storage'dan masterPassword ve familyPassword'ü temizle
+const intervalInMinutes = 30;
 setInterval(function() {
   chrome.tabs.create({ url: "/html/login.html" });
   localStorage.setItem('masterPassword', "");

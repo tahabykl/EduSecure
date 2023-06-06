@@ -1,3 +1,4 @@
+// PRNG (Sözde rastgele sayı üretici).
 function XorShift(seed = 1) {
   let x = seed;
   
@@ -9,6 +10,7 @@ function XorShift(seed = 1) {
   }
 }
 
+// Verilen karakter kümesini karıştır
 const shuffleCharset = (charset) => {
     const xorshift = XorShift(charset.length);
     let array = charset.split('');
@@ -26,7 +28,9 @@ const shuffleCharset = (charset) => {
     return array.join('');
 }
 
+// Web sayfası tamamen yüklendiğinde bu kod bloğunu çalıştır
 document.addEventListener('DOMContentLoaded', async () => {
+  // HTML'den elementleri al
   const passwordForm = document.getElementById('password-form');
   const siteInput = document.getElementById('site');
   const generatedPassword = document.getElementById('generated-password');
@@ -34,19 +38,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   var passlength = 12;
 
+  // Aktif sekmenin domain bilgisini al
   const currentDomain = await getActiveTabDomain();
   siteInput.textContent = currentDomain;
 
+  // 'password-form' elementine tıklanınca olacaklar
   passwordForm.addEventListener('click', async (event) => {
     event.preventDefault();
 
     const site = siteInput.textContent;
     const length = passlength;
 
+    // Site ve uzunluk bilgisiyle bir şifre oluşturuluyor
     const password = await generatePassword(site, length);
     generatedPassword.value = password;
   });
   
+  // 'copy-button' elementine tıklanınca şifre panoya kopyalanıyor
   copyButton.addEventListener('click', () => {
     generatedPassword.select();
     document.execCommand('copy');
@@ -55,6 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const passwordLength = document.getElementById('passwordLength');
 
   const incLength = document.getElementById('incLength');
+  // 'incLength' elementine tıklanınca şifre uzunluğu artırılıyor
   incLength.addEventListener('click', async (event) => {
     event.preventDefault();
     passlength++;
@@ -62,14 +71,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const decLength = document.getElementById('decLength');
+  // 'decLength' elementine tıklanınca şifre uzunluğu azaltılıyor
   decLength.addEventListener('click', async (event) => {
     event.preventDefault();
     passlength--;
     passwordLength.innerHTML = passlength;
   });
-
 });
 
+// Aktif sekmenin domain bilgisini döndüren fonksiyon
 async function getActiveTabDomain() {
   return new Promise((resolve) => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -79,6 +89,7 @@ async function getActiveTabDomain() {
   });
 }
 
+// Domain ve şifre uzunluğunu local storage'a kaydeden fonksiyon
 function storeDomain(domain, passlength) {
   let storedDomains = JSON.parse(localStorage.getItem('domains'));
   let lastId = Number(localStorage.getItem('lastId'));
@@ -107,10 +118,12 @@ function storeDomain(domain, passlength) {
   localStorage.setItem('domains', JSON.stringify(storedDomains));
 }
 
+// Site ve uzunluk bilgisiyle bir şifre oluşturan fonksiyon
 async function generatePassword(site, length) {
   storeDomain(site, length);
   var input;
 
+  // Local storage'dan gerekli bilgiler alınıyor
   if (localStorage.getItem('Account') == 'Bireysel') {
     input = site + localStorage.getItem("masterPassword");
   } else {
@@ -130,13 +143,4 @@ async function generatePassword(site, length) {
   }
 
   return shuffleCharset(password.join(''));
-}
-
-async function getActiveTabDomain() {
-  return new Promise((resolve) => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const url = new URL(tabs[0].url);
-      resolve(url.hostname);
-    });
-  });
 }
