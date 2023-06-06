@@ -10,24 +10,6 @@ function XorShift(seed = 1) {
   }
 }
 
-// Verilen karakter kümesini karıştır
-const shuffleCharset = (charset) => {
-    const xorshift = XorShift(charset.length);
-    let array = charset.split('');
-    let currentIndex = array.length, temporaryValue, randomIndex;
-  
-    while (0 !== currentIndex) {
-      randomIndex = Math.abs(xorshift()) % currentIndex;
-      currentIndex -= 1;
-  
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  
-    return array.join('');
-}
-
 // Web sayfası tamamen yüklendiğinde bu kod bloğunu çalıştır
 document.addEventListener('DOMContentLoaded', async () => {
   // HTML'den elementleri al
@@ -118,19 +100,40 @@ function storeDomain(domain, passlength) {
   localStorage.setItem('domains', JSON.stringify(storedDomains));
 }
 
-// Site ve uzunluk bilgisiyle bir şifre oluşturan fonksiyon
-async function generatePassword(site, length) {
-  storeDomain(site, length);
-  var input;
+function shuffleCharset(charset, xorshift) {
+  let array = charset.split('');
+  let currentIndex = array.length, temporaryValue, randomIndex;
 
-  // Local storage'dan gerekli bilgiler alınıyor
-  if (localStorage.getItem('Account') == 'Bireysel') {
-    input = site + localStorage.getItem("masterPassword");
-  } else {
-    input = site + localStorage.getItem("familyPassword");
+  while (0 !== currentIndex) {
+    randomIndex = Math.abs(xorshift()) % currentIndex;
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
 
-  const charset = shuffleCharset('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/');
+  return array.join('');
+}
+
+
+// Site ve uzunluk bilgisiyle bir şifre oluşturan fonksiyon
+async function generatePassword(site, length) {
+  let masterPassword;
+  
+  if (localStorage.getItem('Account') == 'Bireysel') {
+    masterPassword = localStorage.getItem("masterPassword");
+  } else {
+    masterPassword = localStorage.getItem("familyPassword");
+  }
+  
+  const input = site + masterPassword;
+  
+  // Use a hashed version of the master password as the seed for XorShift
+  const masterPasswordHash = await window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(masterPassword));
+  const xorshift = XorShift(new Uint32Array(masterPasswordHash)[0]);
+
+  const charset = shuffleCharset('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/', xorshift);
   const hash = new TextEncoder().encode(input);
 
   const digest = await window.crypto.subtle.digest('SHA-256', hash);
@@ -142,5 +145,5 @@ async function generatePassword(site, length) {
     password.push(charset[index]);
   }
 
-  return shuffleCharset(password.join(''));
+  return shuffleCharset(password.join(''), xorshift);
 }
