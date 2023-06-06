@@ -1,5 +1,5 @@
 // Fonksiyonu her x dakikada bir çalıştır (varsayılan: her 5 dakikada bir)
-const intervalInMinutes = 5;
+const intervalInMinutes = 15;
 setInterval(function() {
   chrome.tabs.create({ url: "/html/login.html" });
   localStorage.setItem('masterPassword', "");
@@ -14,7 +14,7 @@ var alertedUrls = {};
 var xhr = new XMLHttpRequest();
 xhr.open("GET", chrome.runtime.getURL("/resources/maliciousUrls.json"), true);
 xhr.onreadystatechange = function() {
-  if (xhr.readyState == 4) {
+  if (xhr.readyState == 4) { // XMLHttpRequest's readyState property = 4 -> DONE = "The operation is complete."
     maliciousUrls = JSON.parse(xhr.responseText);
   }
 }
@@ -28,7 +28,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         alertedUrls[details.tabId] = [];
       }
       alertedUrls[details.tabId].push(url.hostname); // URL'yi uyarılmış URL'ler listesine ekle.
-      alert("Malicious request: " + url.hostname);
+      alert("Zararlı istek gönderildi. Kullandığınız websitesini terk etmeniz önerilir: " + url.hostname);
     }
   },
   { urls: ["<all_urls>"] }
